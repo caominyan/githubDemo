@@ -3,7 +3,7 @@ package com.example.githubdemo.const
 class AppConfig {
     companion object{
 
-        const val TOKEN = "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"
+        const val TOKEN = "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"
 
         const val GITHUB_BASE_URL = "https://github.com/"
 

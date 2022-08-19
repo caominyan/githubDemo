@@ -29,7 +29,7 @@ class RepositoryDataSource(private val query: String,
             var responseData = searchService.searchRepositories(query
                 ,sort,order,currentPage)
             //当前页码 小于 总页码 页面加1
-            var nextPage = if (responseData?.incompleteResults == true) {
+            var nextPage = if (responseData?.incompleteResults == false) {
                 currentPage + 1
             } else {
                 //没有更多数据

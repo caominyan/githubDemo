@@ -2,6 +2,7 @@ package com.example.githubdemo.module.search.fragment
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.commit
 import androidx.fragment.app.viewModels
@@ -32,6 +33,9 @@ class SearchFragment :BaseDataBindingFragment(R.layout.fragment_search){
                 }
             }
             lifecycleOwner = this@SearchFragment
+            mBinding.etSearch.addTextChangedListener {
+                mViewModel.searchRepo(it.toString())
+            }
         }
     }
 

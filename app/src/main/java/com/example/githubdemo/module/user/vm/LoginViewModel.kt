@@ -18,7 +18,7 @@ class LoginViewModel : ViewModel() {
 
     fun onLogin(view : View){
         Log.e(TAG,"startLogin")
-        SPStaticUtils.put("token","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")
+        SPStaticUtils.put("token","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")
         mLoginOp?.gotoUserProfile()
    }
 

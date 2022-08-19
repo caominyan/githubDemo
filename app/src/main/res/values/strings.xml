@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">githubDemo</string>
+    <string name="oauth_tip">For now we only support OAuth login in browser, Because Github will remove the Authorizations API endpoint on November 13, 2020. </string>
+    <string name="login">login in</string>
+    <string name="logining">logining</string>
+    <string name="on_login">no login</string>
+    <string name="fork_tag">Fork</string>
+</resources>

@@ -1,0 +1,25 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/public'}
+        google()
+        mavenCentral()
+        mavenLocal()
+        mavenCentral()
+        maven {
+            url "https://s01.oss.sonatype.org/content/repositories/releases/"
+        }
+        google()
+        jcenter()
+        maven { url 'https://jitpack.io' }
+    }
+}
+rootProject.name = "githubDemo"
+include ':app'

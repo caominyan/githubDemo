@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="uservm"
+            type="com.example.githubdemo.module.user.vm.UserViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+        <RelativeLayout
+            android:id="@+id/rl_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|top"
+            android:paddingStart="@dimen/spacing_large"
+            android:paddingEnd="@dimen/spacing_large"
+            android:paddingBottom="@dimen/spacing_large"
+            android:paddingTop="@dimen/spacing_large"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/user_avatar"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:transitionName="userAvatar"
+                android:src="@mipmap/logo"
+                android:layout_centerVertical="true"
+                app:bindingAvator="@{uservm.uiState.avatar_url}"
+                />
+
+            <TextView
+                android:id="@+id/location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_small"
+                android:textColor="@color/black_light"
+                android:layout_toEndOf="@+id/user_avatar"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginTop="@dimen/spacing_x_large"
+                android:text="@{uservm.uiState.login}"
+                />
+
+            <TextView
+                android:id="@+id/joined_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/text_small"
+                android:textColor="@color/black_light"
+                android:layout_below="@+id/location"
+                android:layout_toEndOf="@+id/user_avatar"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:transitionName="issueTitle"
+                android:text="@{uservm.uiState.created_at}"
+                />
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:id="@+id/sc_other"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rl_info"
+            >
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/spacing_large"
+                    android:gravity="center_vertical"
+                    >
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Followers"
+                        >
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/spacing_normal"
+                        android:text="@{String.valueOf(uservm.uiState.followers)}"
+                        >
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@mipmap/back"
+                        android:rotation="180"
+                        android:layout_gravity="right"
+                        >
+
+                    </androidx.appcompat.widget.AppCompatImageView>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/spacing_large"
+                    android:gravity="center_vertical"
+                    >
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Following"
+                        >
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{String.valueOf(uservm.uiState.following)}"
+                        android:layout_marginRight="@dimen/spacing_normal"
+                        >
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@mipmap/back"
+                        android:rotation="180"
+                        android:layout_gravity="right"
+                        >
+
+                    </androidx.appcompat.widget.AppCompatImageView>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/spacing_large"
+                    android:gravity="center_vertical"
+                    >
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Repositories"
+                        >
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{String.valueOf(uservm.uiState.public_repos)}"
+                        android:layout_marginRight="@dimen/spacing_normal"
+
+                        >
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@mipmap/back"
+                        android:rotation="180"
+                        android:layout_gravity="right"
+                        >
+
+                    </androidx.appcompat.widget.AppCompatImageView>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/spacing_large"
+                    android:gravity="center_vertical"
+                    >
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Gist"
+                        >
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{String.valueOf(uservm.uiState.private_gists)}"
+                        android:layout_marginRight="@dimen/spacing_normal"
+
+                        >
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@mipmap/back"
+                        android:rotation="180"
+                        android:layout_gravity="right"
+                        >
+
+                    </androidx.appcompat.widget.AppCompatImageView>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </ScrollView>
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:indicatorName="BallClipRotatePulseIndicator"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:indicatorColor="@color/teal_200"
+            android:visibility="visible"
+            app:bindingLoading="@{uservm.loading}"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

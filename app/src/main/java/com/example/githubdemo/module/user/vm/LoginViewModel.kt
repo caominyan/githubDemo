@@ -18,13 +18,15 @@ class LoginViewModel : ViewModel() {
 
     fun onLogin(view : View){
         Log.e(TAG,"startLogin")
-        SPStaticUtils.put("token","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")
-        mLoginOp?.gotoUserProfile()
+        SPStaticUtils.put("token","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")
+        SPStaticUtils.put("loginin",true)
+        mLoginOp?.goToMain()
    }
 
     fun onNoLogin(view : View){
         Log.e(TAG,"startSearch")
-        mLoginOp?.gotoSearch()
+        SPStaticUtils.put("loginin",false)
+        mLoginOp?.goToMain()
     }
 
     fun getOAuth2Url(): String? {

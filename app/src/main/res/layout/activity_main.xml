@@ -3,21 +3,68 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <data>
-
+        <import type="android.view.View" />
+        <variable
+            name="vm"
+            type="com.example.githubdemo.enter.MainViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activity.MainActivity">
+        tools:context=".enter.MainActivity">
 
         <TextView
+            android:id="@+id/tv_hello"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello World!"
+            android:text="Hello World! main"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tv_hello"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
+            android:text="search page"
+            android:onClick="@{vm::doSearch}"
+            >
+
+        </Button>
+
+        <Button
+            android:id="@+id/btn_user_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/btn_search"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
+            android:text="user_profile"
+            android:visibility="@{vm.loginStatus.booleanValue() ? View.VISIBLE:View.GONE}"
+            android:onClick="@{vm::doUserProfile}"
+            >
+
+        </Button>
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/btn_search"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
+            android:text="user_login"
+            android:visibility="@{vm.loginStatus.booleanValue() ? View.GONE:View.VISIBLE}"
+            android:onClick="@{vm::doLogin}"
+            >
+        </Button>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

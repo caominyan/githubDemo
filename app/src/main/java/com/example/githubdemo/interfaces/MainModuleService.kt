@@ -3,8 +3,8 @@ package com.example.githubdemo.interfaces
 import android.content.Context
 import androidx.fragment.app.Fragment
 
-interface SearchModuleService {
+interface MainModuleService {
 
-    fun goToSearch(ctx : Context)
+    fun goToMain(ctx : Context)
 
 }

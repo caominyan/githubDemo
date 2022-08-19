@@ -1,9 +1,12 @@
 package com.example.githubdemo.module.user.vm
 
+import android.app.Activity
+import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.blankj.utilcode.util.SPStaticUtils
 import com.example.githubdemo.module.user.pojo.UserProfile
 import com.example.githubdemo.module.user.repo.UserFetcher
 import com.example.githubdemo.module.user.repo.UserFetcherImpl
@@ -30,5 +33,10 @@ class UserViewModel : ViewModel() {
                     _uiState.postValue(it)
                 }
         }
+    }
+
+    fun logout(view : View){
+        SPStaticUtils.put("loginin",false)
+        (view.context as Activity).finish()
     }
 }
